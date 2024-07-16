@@ -4,17 +4,13 @@
  */
 package apps;
 
-import connection.Connection;
+import connection.Connect;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Register extends javax.swing.JDialog {
-
-    /**
-     * Creates new form register
-     */
     public Register(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -22,7 +18,7 @@ public class Register extends javax.swing.JDialog {
         setResizable(false);
     }
     
-    Connection db = new Connection();
+    Connect db = new Connect();
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,16 +40,18 @@ public class Register extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     private void createSaler(){
         if(db.getConnection()){
             try{
-                String saler = "daniel@gmail.com";
-                String query = "INSERT INTO saler (email_corp_saler) VALUES (?)";
-                PreparedStatement smtp = db.conn.prepareStatement(query);
+                String salerEmail = "daniel@gmail.com"; // Adicionar no input
+                String salerPassword = "123";
                 
-                smtp.setString(1, saler);
-                ResultSet result = smtp.executeQuery();
+                String query = "INSERT INTO saler (email_corp_saler, salerPassword) VALUES (?, ?)";
+                PreparedStatement stmt = db.conn.prepareStatement(query);
+                
+                stmt.setString(1, salerEmail);
+                stmt.setString(2, salerPassword);
+                ResultSet result = stmt.executeQuery();
                 
                 JOptionPane.showMessageDialog(null, "saler registered with success");
                 System.out.println(result);
@@ -67,8 +65,8 @@ public class Register extends javax.swing.JDialog {
         if(db.getConnection()){
             try{
                 String query = "SELECT id_saler, email_corp_saler FROM saler";
-                PreparedStatement smtp = db.conn.prepareStatement(query);
-                ResultSet result = smtp.executeQuery();
+                PreparedStatement stmt = db.conn.prepareStatement(query);
+                ResultSet result = stmt.executeQuery();
                 
                 System.out.println(result);
             }catch(SQLException e){

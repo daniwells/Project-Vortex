@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Connection {
+public class Connect {
     public Connection conn = null;
     private final String driver = "com.mysql.cj.jdbc.Driver";
     private final String nameDatabase = "javaproject";
