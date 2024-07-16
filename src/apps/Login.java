@@ -4,6 +4,13 @@
  */
 package apps;
 
+import connection.Connect;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import classes.Session;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lid2jvl
@@ -42,7 +49,9 @@ public class Login extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+        
+    Connect db = new Connect();
+    
     /**
      * @param args the command line arguments
      */
@@ -84,6 +93,39 @@ public class Login extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+    
+    private boolean authenticate(){
+        String query = "SELECT * FROM saler WHERE email_corp_saler = ? and password_saler = ? ";
+
+        try {
+            PreparedStatement stmt = db.conn.prepareStatement(query);
+            stmt.setString(1, emailInput);
+            stmt.setString(2, passwordInput);
+            ResultSet result = stmt.executeQuery();
+            
+            if (result.next()) {
+                return true;
+            }
+  
+            result.close();
+            stmt.close();
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    private void login(){
+        if(authenticate()){
+            Session session = Session.getInstance(emailInput, passwordInput);
+            
+            //new MainFrame();
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "User doesn't found!");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
