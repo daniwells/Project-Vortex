@@ -11,11 +11,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Register extends javax.swing.JDialog {
+    private int idSaler ;
+    
     public Register(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         
         setResizable(false);
+        setLocationRelativeTo(null);
     }
     
     Connect db = new Connect();
@@ -58,8 +61,20 @@ public class Register extends javax.swing.JDialog {
         jButton_signup.setForeground(new java.awt.Color(255, 255, 255));
         jButton_signup.setText("sign up");
 
+<<<<<<< HEAD
         jTextField_password.setFont(new java.awt.Font("Bosch Sans", 0, 16)); // NOI18N
         jTextField_password.setForeground(new java.awt.Color(77, 73, 73));
+=======
+        jButton1.setBackground(new java.awt.Color(77, 73, 73));
+        jButton1.setFont(new java.awt.Font("Bosch Sans", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("sign up");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+>>>>>>> 17d8e570da63d51db41a3610f02f1a3192d2f78e
 
         jLabel_password.setFont(new java.awt.Font("Bosch Sans", 0, 16)); // NOI18N
         jLabel_password.setForeground(new java.awt.Color(77, 73, 73));
@@ -84,6 +99,7 @@ public class Register extends javax.swing.JDialog {
                         .addGap(126, 126, 126))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_containerLayout.createSequentialGroup()
                         .addComponent(jLabel_title)
+<<<<<<< HEAD
                         .addGap(118, 118, 118))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_containerLayout.createSequentialGroup()
                         .addComponent(jLabel_logo)
@@ -97,6 +113,13 @@ public class Register extends javax.swing.JDialog {
                     .addComponent(jTextField_password, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_signup, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 50, Short.MAX_VALUE))
+=======
+                        .addGap(118, 118, 118))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(189, 189, 189))
+>>>>>>> 17d8e570da63d51db41a3610f02f1a3192d2f78e
         );
         jPanel_containerLayout.setVerticalGroup(
             jPanel_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,6 +149,7 @@ public class Register extends javax.swing.JDialog {
         jPanel_background.setLayout(jPanel_backgroundLayout);
         jPanel_backgroundLayout.setHorizontalGroup(
             jPanel_backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_backgroundLayout.createSequentialGroup()
                 .addContainerGap(378, Short.MAX_VALUE)
                 .addComponent(jPanel_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,15 +158,27 @@ public class Register extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+            .addGroup(jPanel_backgroundLayout.createSequentialGroup()
+                .addGap(364, 364, 364)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(377, Short.MAX_VALUE))
+>>>>>>> 17d8e570da63d51db41a3610f02f1a3192d2f78e
         );
         jPanel_backgroundLayout.setVerticalGroup(
             jPanel_backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_backgroundLayout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(63, 63, 63)
                 .addComponent(jPanel_container, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(192, Short.MAX_VALUE))
+=======
+                .addGap(108, 108, 108)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(173, Short.MAX_VALUE))
+>>>>>>> 17d8e570da63d51db41a3610f02f1a3192d2f78e
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,23 +195,90 @@ public class Register extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        createSaler();
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    /**
+    * @param args the command line arguments
+    */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Register dialog = new Register(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
+    
+    private void selectUser(String email){
+        String query = "SELECT id_saler FROM saler WHERE email_corp_saler = ?";
+
+        try {
+            PreparedStatement stmt = db.conn.prepareStatement(query);
+            stmt.setString(1, email);
+            ResultSet result = stmt.executeQuery();
+
+            if (result.next()) {
+                this.idSaler = result.getInt("id_saler");
+            }
+            
+            result.close();
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
     private void createSaler(){
         if(db.getConnection()){
-            try{
-                String salerEmail = "daniel@gmail.com"; // Adicionar no input
-                String salerPassword = "123";
-                
-                String query = "INSERT INTO saler (email_corp_saler, salerPassword) VALUES (?, ?)";
+            try{                
+                String query = "INSERT saler (email_corp_saler, password_saler) VALUES (?, ?)";
                 PreparedStatement stmt = db.conn.prepareStatement(query);
                 
-                stmt.setString(1, salerEmail);
-                stmt.setString(2, salerPassword);
-                ResultSet result = stmt.executeQuery();
+                stmt.setString(1, jTextField_email.getText());
+                stmt.setString(2, jTextField_password.getText());
+                stmt.executeUpdate();
+                stmt.close();
                 
-                JOptionPane.showMessageDialog(null, "saler registered with success");
-                System.out.println(result);
+                JOptionPane.showMessageDialog(null, "Saler registered with success");
+                
+                selectUser(jTextField_email.getText());
+                
+                db.conn.close();
             }catch(SQLException e){
-                JOptionPane.showMessageDialog(null, "Error to get category datas!"+e.toString());
+                JOptionPane.showMessageDialog(null, "Error to register saler!"+e.toString());
             }
         }
     }
