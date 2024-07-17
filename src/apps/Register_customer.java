@@ -4,23 +4,16 @@
  */
 package apps;
 
-import connection.Connect;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import classes.Session;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author lid2jvl
  */
-public class Login extends javax.swing.JDialog {
+public class Register_customer extends javax.swing.JDialog {
 
     /**
-     * Creates new form login
+     * Creates new form register_customer
      */
-    public Login(java.awt.Frame parent, boolean modal) {
+    public Register_customer(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -49,9 +42,7 @@ public class Login extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-        
-    Connect db = new Connect();
-    
+
     /**
      * @param args the command line arguments
      */
@@ -69,13 +60,13 @@ public class Login extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register_customer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register_customer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register_customer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register_customer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -83,7 +74,7 @@ public class Login extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Login dialog = new Login(new javax.swing.JFrame(), true);
+                Register_customer dialog = new Register_customer(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -93,39 +84,6 @@ public class Login extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
-    }
-    
-    private boolean authenticate(){
-        String query = "SELECT * FROM saler WHERE email_corp_saler = ? and password_saler = ? ";
-
-        try {
-            PreparedStatement stmt = db.conn.prepareStatement(query);
-            stmt.setString(1, emailInput);
-            stmt.setString(2, passwordInput);
-            ResultSet result = stmt.executeQuery();
-            
-            if (result.next()) {
-                return true;
-            }
-  
-            result.close();
-            stmt.close();
-            return false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-    
-    private void login(){
-        if(authenticate()){
-            Session session = Session.getInstance(emailInput, passwordInput);
-            
-            //new MainFrame();
-            dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "User doesn't found!");
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
